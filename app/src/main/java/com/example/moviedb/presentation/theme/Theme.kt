@@ -1,4 +1,4 @@
-package com.example.moviedb.ui.theme
+package com.example.themoviedbapp.presentation.theme
 
 import android.app.Activity
 import android.os.Build
@@ -34,7 +34,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun MoviedbTheme(
+fun TheMovieDBAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

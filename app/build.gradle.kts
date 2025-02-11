@@ -29,6 +29,7 @@ android {
             useSupportLibrary = true
         }
         buildConfigField("String", "API_KEY", apikeyProperties["API_KEY"].toString())
+        buildConfigField("String", "BASE_URL", apikeyProperties["BASE_URL"].toString())
     }
 
     buildTypes {
