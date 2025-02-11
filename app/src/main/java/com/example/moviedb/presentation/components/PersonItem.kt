@@ -18,15 +18,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.moviedb.data.remote.model.Person
 
 @Composable
-fun PersonItem(person: Person) {
+fun PersonItem(person: Person, navController: NavController?) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -34,7 +36,9 @@ fun PersonItem(person: Person) {
             .border(0.5.dp, color = MaterialTheme.colorScheme.primary , shape = RoundedCornerShape(5.dp))
             .shadow(0.5.dp, shape = RoundedCornerShape(3.dp))
             .clickable {
-
+                if (navController != null) {
+                    navController.navigate("details/${person.id}")
+                }
             }
     ) {
         Image(

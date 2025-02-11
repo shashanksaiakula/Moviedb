@@ -15,7 +15,7 @@ import com.example.moviedb.presentation.components.PersonItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavController?) {
     val people = viewModel.people.collectAsLazyPagingItems()
 
     Scaffold(
@@ -27,7 +27,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(people.itemCount) { index ->
                     val person = people[index]
-                    person?.let { PersonItem(it) }
+                    person?.let { PersonItem(it, navController) }
                 }
 
                 // Infinite Scroll Handling
