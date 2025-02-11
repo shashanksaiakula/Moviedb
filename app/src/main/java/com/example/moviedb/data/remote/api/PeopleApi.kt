@@ -19,4 +19,11 @@ interface PeopleApi {
         @Path("person_id") personId: Int,
         @Query("api_key") apiKey: String = BuildConfig.API_KEY
     ): PersonDetails
+
+    @GET("search/person")
+    suspend fun searchPeople(
+        @Query("query") query: String,
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ): PeopleResponse
 }

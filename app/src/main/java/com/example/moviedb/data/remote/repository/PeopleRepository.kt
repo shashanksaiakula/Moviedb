@@ -10,5 +10,6 @@ class PeopleRepository @Inject constructor(private val api: PeopleApi) {
             PersonDetails {
         return api.getPersonDetails(personId)
     }
+    suspend fun searchPeople(quary : String) = api.searchPeople(quary)
 }
 
